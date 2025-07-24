@@ -1,0 +1,81 @@
+Given the head of a singly linked list, return the middle node of the linked list.
+
+If there are two middle nodes, return the second middle node.
+
+
+Example 1:
+
+
+Input: head = [1,2,3,4,5]
+Output: [3,4,5]
+Explanation: The middle node of the list is node 3.
+Example 2:
+
+
+Input: head = [1,2,3,4,5,6]
+Output: [4,5,6]
+Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [1, 100].
+1 <= Node.val <= 100
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+
+Solution 1 :
+
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        List<ListNode> list = new ArrayList<>();
+        int i = 0;
+        while(head!=null){
+            list.add(head);
+            head = head.next;
+            i++;
+        }
+        return list.get(i/2);
+    }
+}
+
+ //Time Complexity = O(n)
+ //Space Complexity = O(n)
+
+
+Solution 2 : 
+
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode mid = head;
+        ListNode end = head;
+
+       /* 1 2 3 4 5 6 incrementing end by 2 steps and increase mid by 1 step since mid increases only when size gets increeased by 2
+
+        1 -> 1
+        1 2 -> 2
+        1 2 3 -> 2
+        1 2 3 4 -> 3
+        1 2 3 4 5 -> 3
+
+       */
+        while(end!=null && end.next!= null){
+            mid = mid.next;
+            end = end.next.next;
+        }
+        return mid;
+    }
+}
+
+ //Time Complexity = O(n)
+ //Space Complexity = O(1)
