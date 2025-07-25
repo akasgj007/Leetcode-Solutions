@@ -39,39 +39,8 @@ Solution 1 :
 
 Using Iterative Approach
 
-class Solution {
-    public int numberOfSteps(int num) {
-        int count = 0;
-        while(num>0){
-            if(num%2==0){
-                num = num/2;
-            }
-            else{
-                num = num - 1;
-            }
-            count++;
-        }
-        return count;
-    }
-}
-
 
 Solution 2 : 
 
 Bitwise Approach 
 
-
-class Solution {
-    public int numberOfSteps(int num) {
-        int count = 0;
-        while (num > 0) {
-            if ((num & 1) == 0) {
-                num = num / 2;
-            } else {
-                num = num - 1;
-            }
-            count++;
-        }
-        return count;
-    }
-}
