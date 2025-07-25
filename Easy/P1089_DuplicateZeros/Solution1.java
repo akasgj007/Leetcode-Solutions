@@ -1,4 +1,4 @@
-class Solution1 {
+class Solution {
     public void duplicateZeros(int[] arr) {
         int n = arr.length;
         int dup[] = new int[n];
